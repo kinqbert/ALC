@@ -31,7 +31,68 @@ int convertInMinutes (int hours, int minutes)
 
 bool lectureRightNow (int currentDay, int currentTime, bool isFirstWeek)
 {
-
+    switch (currentDay)
+    {
+        case 0:
+        {
+            if ((currentTime >= start1 && currentTime <= start2) || (currentTime >= start2 && currentTime <= end2) || (currentTime >= start3 && currentTime <= end3) || (currentTime >= start4 && currentTime <= end4))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        case 1:
+        {
+            if (currentTime >= start3 && currentTime <= end3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        case 2:
+        {
+            if ((currentTime >= start1 && currentTime <= start2) || (currentTime >= start2 && currentTime <= end2) || (currentTime >= start3 && currentTime <= end3))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        case 3:
+        {
+            if ((currentTime >= start1 && currentTime <= start2) || (currentTime >= start2 && currentTime <= end2) || (currentTime >= start3 && currentTime <= end3))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        case 4:
+        {
+            if ((currentTime >= start1 && currentTime <= start2) || (currentTime >= start2 && currentTime <= end2) || (currentTime >= start3 && currentTime <= end3))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        default:
+        {
+            return false;
+        }
+    }
 }
 
 void currentLecture (int currentDay, int currentTime, bool isFirstWeek, string* command)
@@ -164,117 +225,37 @@ void currentLecture (int currentDay, int currentTime, bool isFirstWeek, string* 
     }
 }
 
-//int currentLecture (int currentDay, int currentTime, int currentWeek, string* command)
-//{
-//    string algorithmsAndDataStructures = "link1";
-//    string programming = "link1";
-//    string discreteMath = "link1";
-//    string linearAlgebra = "link1";
-//    string physics = "link1";
-//    string mathematicalAnalysis = "link1";
-//    string history = "link1";
-//    string english = "link1";
-//    string physicalEducation = "link1";
-//
-//    switch (currentDay)
-//    {
-//        case 0:
-//        {
-//            if ((currentTime >= start1 && currentTime <= start2))
-//            {
-//                return 4;
-//            }
-//            else if (currentTime >= start2 && currentTime <= end2)
-//            {
-//                return 6;
-//            }
-//            else if (currentTime >= start3 && currentTime <= end3)
-//            {
-//                return 5;
-//            }
-//            else if (currentTime >= start4 && currentTime <= end4)
-//            {
-//                return 7;
-//            }
-//            else
-//            {
-//                return 0;
-//            }
-//        }
-//        case 1:
-//        {
-//            if (currentTime >= start3 && currentTime <= end3)
-//            {
-//                return 7;
-//            }
-//            else
-//            {
-//                return 0;
-//            }
-//        }
-//        case 2:
-//        {
-//            if ((currentTime >= start1 && currentTime <= start2))
-//            {
-//                return 1;
-//            }
-//            else if (currentTime >= start2 && currentTime <= end2)
-//            {
-//                return 6;
-//            }
-//            else if (currentTime >= start3 && currentTime <= end3)
-//            {
-//                return 6;
-//            }
-//            else
-//            {
-//                return 0;
-//            }
-//        }
-//        case 3:
-//        {
-//            if ((currentTime >= start1 && currentTime <= start2))
-//            {
-//                return 1;
-//            }
-//            else if (currentTime >= start2 && currentTime <= end2)
-//            {
-//                return 6;
-//            }
-//            else if (currentTime >= start3 && currentTime <= end3)
-//            {
-//                return 6;
-//            }
-//            else
-//            {
-//                return 0;
-//            }
-//        }
-//        case 4:
-//        {
-//            if ((currentTime >= start1 && currentTime <= start2))
-//            {
-//                return 4;
-//            }
-//            else if (currentTime >= start2 && currentTime <= end2)
-//            {
-//                return 9;
-//            }
-//            else if (currentTime >= start3 && currentTime <= end3)
-//            {
-//                return 5;
-//            }
-//            else
-//            {
-//                return 0;
-//            }
-//        }
-//        default:
-//        {
-//            return 0;
-//        }
-//    }
-//}
+void welcomeText (tm tm)
+{
+    cout << "// today is  ";
+    switch (tm.tm_wday)
+    {
+        case 0:
+            cout << "Sunday";
+            break;
+        case 1:
+            cout << "Monday";
+            break;
+        case 2:
+            cout << "Tuesday";
+            break;
+        case 3:
+            cout << "Wednesday";
+            break;
+        case 4:
+            cout << "Thursday";
+            break;
+        case 5:
+            cout << "Friday";
+            break;
+        case 6:
+            cout << "Saturday";
+            break;
+    }
+    cout << endl;
+
+    cout << "// current time:" << tm.tm_hour << ":" << tm.tm_min << ":" << tm.tm_sec << endl;
+}
 
 
 int main()
@@ -316,35 +297,8 @@ int main()
     time_t t = time(nullptr);
     tm tm = *localtime(&t);
 
-    cout << "// today is  ";
-    switch (tm.tm_wday)
-    {
-        case 0:
-            cout << "Sunday";
-            break;
-        case 1:
-            cout << "Monday";
-            break;
-        case 2:
-            cout << "Tuesday";
-            break;
-        case 3:
-            cout << "Wednesday";
-            break;
-        case 4:
-            cout << "Thursday";
-            break;
-        case 5:
-            cout << "Friday";
-            break;
-        case 6:
-            cout << "Saturday";
-            break;
-    }
-    cout << endl;
+    welcomeText (tm);
 
-    cout << "// current time:" << tm.tm_hour << ":" << tm.tm_min << ":" << tm.tm_sec << endl;
-    
     currentLecture (tm.tm_wday, convertInMinutes(tm.tm_hour, tm.tm_min), true, &command);
 
     system(command.c_str());
