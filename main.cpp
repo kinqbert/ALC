@@ -2,21 +2,23 @@
 #include <ctime>
 #include <thread>
 
-#define start1 510
-#define end1 605
-#define start2 625
-#define end2 720
-#define start3 740
-#define end3 835
-#define start4 855
-#define end4 950
+#define start1 510      // start of the FIRST lecture
+#define end1 605        // end of the FIRST lecture
+#define start2 625      // start of the SECOND lecture
+#define end2 720        // end of the SECOND lecture
+#define start3 740      // start of the THIRD lecture
+#define end3 835        // end of the THIRD lecture
+#define start4 855      // start of the FOURTH lecture
+#define end4 950        // end of the FOURTH lecture
 
-#define N 5
-#define M 4
-#define AMOUNT_OF_SUBJECTS 11
+#define N 5                     // amount of days with lectures
+#define M 4                     // max amount of lectures per day
+#define AMOUNT_OF_SUBJECTS 11   // amount of subjects (some subjects are distracted, as they may have different links)
 
 using namespace std;
 
+// пояснення заповнення масиву (розкладу)
+//
 // 0 - пари немає
 // 1 - АСД
 // 2 - програмування
@@ -211,9 +213,12 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
     }
 }
 
-void welcomeText (tm tm)
+void welcomeText (tm tm, bool firstWeek)
 {
-    cout << "// today is ";
+
+
+    cout << "// current time: ";
+
     switch (tm.tm_wday)
     {
         case 0:
@@ -238,9 +243,10 @@ void welcomeText (tm tm)
             cout << "Saturday";
             break;
     }
-    cout << endl;
 
-    cout << "// current time: " << tm.tm_hour << ":" << ((tm.tm_min < 10) ? "0" : "") << tm.tm_min << ":" << ((tm.tm_sec < 10) ? "0" : "") << tm.tm_sec << endl;
+    cout << ", " << tm.tm_hour << ":" << ((tm.tm_min < 10) ? "0" : "") << tm.tm_min << ":" << ((tm.tm_sec < 10) ? "0" : "") << tm.tm_sec << endl;
+
+    cout << "// current week: " << (firstWeek ? "1" : "2") << endl;
 }
 
 void fillArray (const int daysInWeek, const int maxLectures, int schedule[N][M], bool firstWeek)
@@ -403,21 +409,21 @@ int main()
 
     string links[11];
 
-    links[0] = "https://www.google.com/"; // ASD
-    links[1] = "https://www.google.com/"; // programming
-    links[2] = "https://www.google.com/"; // discrete math
-    links[3] = "https://www.google.com/"; // linear algebra
-    links[4] = "https://www.google.com/"; // physics
-    links[5] = "https://www.google.com/"; // physics lab
-    links[6] = "https://www.google.com/"; // mathematical analysis lectures
-    links[7] = "https://www.google.com/"; // mathematical analysis practice
-    links[8] = "https://www.google.com/"; // history
-    links[9] = "https://www.google.com/"; // english
-    links[10] = "https://www.google.com/"; // PE
+    links[0] = "https://us04web.zoom.us/j/9789475134?pwd=bzkwVGs2eHZ2MWt1aTZHcWFFdmJPQT09";             // ASD (old)
+    links[1] = "https://us02web.zoom.us/j/89977422611?pwd=NnFvZm96Z0tIY2wxb2RRNFYzbzhRdz09";            // programming (old)
+    links[2] = "https://us04web.zoom.us/j/6727628241";                                                  // discrete math
+    links[3] = "https://us04web.zoom.us/j/73456606968?pwd=lwYGGXQOMDqyXiMDQnnnEe0anBddna.1";            // linear algebra
+    links[4] = "https://us04web.zoom.us/j/75391061232?pwd=U77uTer42xanymLF4fXia9e9aalEYm.1";            // physics
+    links[5] = "https://us02web.zoom.us/j/81383053012?pwd=UXZhZUpIYmh2MVRBUm5mOG5PVWI4dz09";            // physics lab
+    links[6] = "https://us05web.zoom.us/j/3362272501?pwd=Vm42cEVNQVBrcUlhYWpzdnYwOUNMQT09";             // mathematical analysis lectures
+    links[7] = "https://www.google.com/";                                                               // mathematical analysis practice
+    links[8] = "https://www.google.com/";                                                               // history
+    links[9] = "https://us04web.zoom.us/j/73305293706?pwd=FCIp7bJ7szMAOiFBOFYTwKgdNW6HZ5.1";            // english
+    links[10] = "https://www.google.com/";                                                              // PE
 
     fillArray(daysInWeek, maxLectures, schedule, firstWeek);
 
-    welcomeText (tm);
+    welcomeText (tm, firstWeek);
 
     if (lectureRightNow(tm.tm_wday, convertInMinutes(tm.tm_hour, tm.tm_min), firstWeek))
     {
@@ -429,7 +435,7 @@ int main()
         timeToTheNextLecture(convertInMinutes(tm.tm_hour, tm.tm_min), tm.tm_wday, firstWeek, commandRef, schedule, links);
     }
 
-    cout << "// press ENTER to open this link" << endl;
+    cout << "// press ENTER to open this link now" << endl;
 
     cin.ignore();
 
