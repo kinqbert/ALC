@@ -240,7 +240,7 @@ void welcomeText (tm tm)
     }
     cout << endl;
 
-    cout << "// current time: " << tm.tm_hour << ":" << ((tm.tm_min < 10) ? "0" : "") << tm.tm_min << ":" << tm.tm_sec << endl;
+    cout << "// current time: " << tm.tm_hour << ":" << ((tm.tm_min < 10) ? "0" : "") << tm.tm_min << ":" << ((tm.tm_sec < 10) ? "0" : "") << tm.tm_sec << endl;
 }
 
 void fillArray (const int daysInWeek, const int maxLectures, int schedule[N][M], bool firstWeek)
