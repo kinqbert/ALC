@@ -110,7 +110,7 @@ bool lectureRightNow (int currentDay, int currentTime, bool firstWeek)
     }
 }
 
-void currentLecture (int currentDay, int currentTime, bool firstWeek, string* command, string link[AMOUNT_OF_SUBJECTS])
+void currentLecture (int currentDay, int currentTime, bool firstWeek, string &command, string link[AMOUNT_OF_SUBJECTS])
 {
     switch (currentDay)
     {
@@ -119,22 +119,22 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string* co
             if ((currentTime >= start1 && currentTime <= start2))
             {
                 cout << "Linear Algebra (lecture) with Bochonov Y.E.\n// link: " << link[3] << endl;
-                *command = "start " + link[3];
+                command = "start " + link[3];
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
                 cout << "Mathematical Logic and Theory of Algorithms (lecture) with Statkevych V.M.\n// link: " << link[2] << endl;
-                *command = "start " + link[2];
+                command = "start " + link[2];
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
                 cout << "Physics of Oscillatory-Wave Processes (lecture) with Kalyta V.M.\n// link: " << link[4] << endl;
-                *command = "start " + link[4];
+                command = "start " + link[4];
             }
             else if (currentTime >= start4 && currentTime <= end4 && firstWeek)
             {
                 cout << "Ukraine in Context of European Development (lecture) with Khytrovska Y.V.\n// link: " << link[8] << endl;
-                *command = "start " + link[8];
+                command = "start " + link[8];
             }
             break;
         }
@@ -143,12 +143,12 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string* co
             if (currentTime >= start2 && currentTime <= end2 && !firstWeek)
             {
                 cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n// link: " << link[8] << endl;
-                *command = "start " + link[8];
+                command = "start " + link[8];
             }
             if (currentTime >= start3 && currentTime <= end3)
             {
                 cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n// link: " << link[8] << endl;
-                *command = "start " + link[8];
+                command = "start " + link[8];
             }
             break;
         }
@@ -157,17 +157,17 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string* co
             if ((currentTime >= start1 && currentTime <= start2))
             {
                 cout << "Algorithms and Data Structures (lecture) with Kleshch K. and Yakovchuk O.\n// link: " << link[0] << endl;
-                *command = "start " + link[0];
+                command = "start " + link[0];
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
                 cout << "Mathematical Analysis (lecture) with Nomirovskyi D.A.\n// link: " << link[6] << endl;
-                *command = "start " + link[6];
+                command = "start " + link[6];
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
                 cout << "Mathematical Analysis (lecture) with Nomirovskyi D.A.\n// link: " << link[6] << endl;
-                *command = "start " + link[6];
+                command = "start " + link[6];
             }
             break;
         }
@@ -176,17 +176,17 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string* co
             if ((currentTime >= start1 && currentTime <= start2))
             {
                 cout << "Mathematical Logic and Theory of Algorithms (practice) with Statkevych V.M.\n// link: " << link[2] << endl;
-                *command = "start " + link[2];
+                command = "start " + link[2];
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
                 cout << "Mathematical Analysis (practice) with Minarchenko O.M.\n// link: " << link[7] << endl;
-                *command = "start " + link[7];
+                command = "start " + link[7];
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
                 cout << "English Course (practice) with Duchanina N.M.\n// link: " << link[9] << endl;
-                *command = "start " + link[9];
+                command = "start " + link[9];
             }
             break;
         }
@@ -195,17 +195,17 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string* co
             if ((currentTime >= start1 && currentTime <= start2))
             {
                 cout << "Linear Algebra (practice) with Bochonov Y.E.\n// link: " << link[3] << endl;
-                *command = "start " + link[3];
+                command = "start " + link[3];
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
                 cout << "Physical Education (practice) with Zacharova I.Y.\n// link: " << link[10] << endl;
-                *command = "start " + link[10];
+                command = "start " + link[10];
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
                 cout << "Physics of Oscillatory-Wave Processes (lecture) with Kalyta V.M.\n// link for the second group: " << link[5] << endl;
-                *command = "start " + link[5];
+                command = "start " + link[5];
             }
         }
     }
@@ -240,7 +240,7 @@ void welcomeText (tm tm)
     }
     cout << endl;
 
-    cout << "// current time:" << tm.tm_hour << ":" << ((tm.tm_min < 10) ? "0" : "") << tm.tm_min << ":" << tm.tm_sec << endl;
+    cout << "// current time: " << tm.tm_hour << ":" << ((tm.tm_min < 10) ? "0" : "") << tm.tm_min << ":" << tm.tm_sec << endl;
 }
 
 void fillArray (const int daysInWeek, const int maxLectures, int schedule[N][M], bool firstWeek)
@@ -297,7 +297,7 @@ void fillArray (const int daysInWeek, const int maxLectures, int schedule[N][M],
     }
 }
 
-void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, string* command, int schedule[N][M], string link[AMOUNT_OF_SUBJECTS])
+void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, string &command, int schedule[N][M], string link[AMOUNT_OF_SUBJECTS])
 {
     const int dayTime = 1440;
     int daysLeft = 0, hoursLeft = 0, minutesLeft = 0, nextLectureNumber = 0, nextLectureDay = currentDay - 1;
@@ -363,7 +363,6 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
         }
         nextLectureNumber = 0;
         nextLectureDay++;
-        //minutesLeft -= 135 * 4;
         nextLectureDay = convertDays(nextLectureDay);
     }
 
@@ -385,43 +384,6 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
 
     nextLectureDay = convertDays(nextLectureDay);
 
-//    switch (schedule[nextLectureDay][nextLectureNumber])
-//    {
-//        case 1:
-//            cout << "Algorithms and Data Structures (lecture) with Kleshch K. and Yakovchuk O.\n// link: " << link[0] << endl;
-//            break;
-//        case 2:
-//            cout << "Programming and Algorithmization (lecture) with Romanov V.V.\n// link: " << link[1] << endl;
-//            break;
-//        case 3:
-//            cout << "Mathematical Logic and Theory of Algorithms (lecture) with Statkevych V.M.\n// link: " << link[2] << endl;
-//            break;
-//        case 4:
-//            cout << "Linear Algebra (lecture) with Bochonov Y.E.\n// link: " << link[3] << endl;
-//            break;
-//        case 5:
-//            cout << "Physics of Oscillatory-Wave Processes (lecture) with Kalyta V.M.\n// link for the second group: " << link[5] << endl;
-//            break;
-//        case 6:
-//            cout << "Physics (laboratory) with Ivanova I.M.\n// link for the second group: " << link[5] << endl;
-//            break;
-//        case 7:
-//            cout << "Mathematical Analysis (practice) with Minarchenko O.M.\n// link: " << link[7] << endl;
-//            break;
-//        case 8:
-//            cout << "Mathematical Analysis (lecture) with Nomirovskyi D.A.\n// link: " << link[6] << endl;
-//            break;
-//        case 9:
-//            cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n// link: " << link[8] << endl;
-//            break;
-//        case 10:
-//            cout << "English Course (practice) with Duchanina N.M.\n// link: " << link[9] << endl;
-//            break;
-//        case 11:
-//            cout << "Physical Education (practice) with Zacharova I.Y.\n// link: " << link[10] << endl;
-//            break;
-//    }
-
     currentLecture (nextLectureDay, (nextLectureNumber == 0 ? start1 : (nextLectureNumber == 1 ? start2 : (nextLectureNumber == 3 ? start3 : start4))), firstWeek, command, link);
 }
 
@@ -433,6 +395,7 @@ int main()
     const int daysInWeek = 5, maxLectures = 4;
 
     string command;
+    string &commandRef = command;
 
     int schedule[N][M];
 
@@ -459,16 +422,20 @@ int main()
     if (lectureRightNow(tm.tm_wday, convertInMinutes(tm.tm_hour, tm.tm_min), firstWeek))
     {
         cout << "// current lecture: ";
-        currentLecture (tm.tm_wday, convertInMinutes(tm.tm_hour, tm.tm_min), firstWeek, &command, links);
+        currentLecture (tm.tm_wday, convertInMinutes(tm.tm_hour, tm.tm_min), firstWeek, commandRef, links);
     }
     else
     {
-        timeToTheNextLecture(convertInMinutes(tm.tm_hour, tm.tm_min), tm.tm_wday, firstWeek, &command, schedule, links);
+        timeToTheNextLecture(convertInMinutes(tm.tm_hour, tm.tm_min), tm.tm_wday, firstWeek, commandRef, schedule, links);
     }
+
+    cout << "// press ENTER to open this link" << endl;
+
+    cin.ignore();
 
     system(command.c_str());
 
-    system("pause");
+    cin.ignore();
 
     return 0;
 }
