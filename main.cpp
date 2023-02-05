@@ -347,7 +347,7 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
         nextLectureDay += 2;
         nextLectureNumber = 0;
     }
-    else if (currentDay == 7)
+    else if (currentDay == 0)
     {
         minutesLeft = dayTime - currentTime + start1;
         nextLectureDay += 1;
