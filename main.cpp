@@ -39,7 +39,7 @@ int convertInMinutes (int hours, int minutes)
 
 int convertDays (int a)
 {
-    if (a >= 5)
+    if (a > 5)
     {
         return 0;
     }
@@ -337,6 +337,7 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
             nextLectureDay++;
             if (currentDay == 5)
             {
+                minutesLeft += dayTime * 2;
                 nextLectureDay += 2;
             }
         }
@@ -390,7 +391,7 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
 
     nextLectureDay = convertDays(nextLectureDay);
 
-    currentLecture (nextLectureDay, (nextLectureNumber == 0 ? start1 : (nextLectureNumber == 1 ? start2 : (nextLectureNumber == 3 ? start3 : start4))), firstWeek, command, link);
+    currentLecture (nextLectureDay + 1, (nextLectureNumber == 0 ? start1 : (nextLectureNumber == 1 ? start2 : (nextLectureNumber == 3 ? start3 : start4))), firstWeek, command, link);
 }
 
 int main()
