@@ -11,9 +11,9 @@
 #define start4 855      // start of the FOURTH lecture
 #define end4 950        // end of the FOURTH lecture
 
-#define N 5                     // amount of days with lectures
-#define M 4                     // max amount of lectures per day
-#define AMOUNT_OF_SUBJECTS 11   // amount of subjects (some subjects are distracted, as they may have different links)
+#define N 5                         // amount of days with lectures
+#define M 4                         // max amount of lectures per day
+#define AMOUNT_OF_SUBJECTS 11       // amount of subjects (some subjects are split, as they may have different links)
 
 using namespace std;
 
@@ -39,7 +39,16 @@ int convertInMinutes (int hours, int minutes)
 
 int convertDays (int a)
 {
-    if (a > 5)
+    if (a > 4)
+    {
+        return 0;
+    }
+    return a;
+}
+
+int convertLectures (int a)
+{
+    if (a > 3)
     {
         return 0;
     }
@@ -215,7 +224,6 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
 
 void welcomeText (tm tm, bool firstWeek)
 {
-
 
     cout << "// current time: ";
 
