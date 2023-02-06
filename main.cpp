@@ -134,7 +134,7 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
-                cout << "Mathematical Logic and Theory of Algorithms (lecture) with Statkevych V.M.\n// link: " << link[2] << endl;
+                cout << "Mathematical Logic and Theory of Algorithms (lecture) with Statkevych V.M.\n// passcode: 0oRKLp\n// link: " << link[2] << endl;
                 command = "start " + link[2];
             }
             else if (currentTime >= start3 && currentTime <= end3)
@@ -186,7 +186,7 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         {
             if ((currentTime >= start1 && currentTime <= start2))
             {
-                cout << "Mathematical Logic and Theory of Algorithms (practice) with Statkevych V.M.\n// link: " << link[2] << endl;
+                cout << "Mathematical Logic and Theory of Algorithms (practice) with Statkevych V.M.\n// passcode: 0oRKLp\n// link: " << link[2] << endl;
                 command = "start " + link[2];
             }
             else if (currentTime >= start2 && currentTime <= end2)
@@ -399,7 +399,7 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
 
     nextLectureDay = convertDays(nextLectureDay);
 
-    currentLecture (nextLectureDay + 1, (nextLectureNumber == 0 ? start1 : (nextLectureNumber == 1 ? start2 : (nextLectureNumber == 3 ? start3 : start4))), firstWeek, command, link);
+    currentLecture (nextLectureDay + 1, (nextLectureNumber == 0 ? start1 : (nextLectureNumber == 1 ? start2 : (nextLectureNumber == 2 ? start3 : start4))), firstWeek, command, link);
 }
 
 int main()
