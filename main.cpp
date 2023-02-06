@@ -127,7 +127,7 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
     {
         case 1:
         {
-            if ((currentTime >= start1 && currentTime <= start2))
+            if ((currentTime >= start1 && currentTime <= end1))
             {
                 cout << "Linear Algebra (lecture) with Bochonov Y.E.\n// link: " << link[3] << endl;
                 command = "start " + link[3];
