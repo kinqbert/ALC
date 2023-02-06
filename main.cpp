@@ -424,9 +424,9 @@ int main()
     links[3] = "https://us04web.zoom.us/j/73456606968?pwd=lwYGGXQOMDqyXiMDQnnnEe0anBddna.1";            // linear algebra
     links[4] = "https://us04web.zoom.us/j/75391061232?pwd=U77uTer42xanymLF4fXia9e9aalEYm.1";            // physics
     links[5] = "https://us02web.zoom.us/j/81383053012?pwd=UXZhZUpIYmh2MVRBUm5mOG5PVWI4dz09";            // physics lab
-    links[6] = "https://us05web.zoom.us/j/3362272501?pwd=Vm42cEVNQVBrcUlhYWpzdnYwOUNMQT09";             // mathematical analysis lectures
-    links[7] = "https://www.google.com/";                                                               // mathematical analysis practice
-    links[8] = "https://www.google.com/";                                                               // history
+    links[6] = "https://us04web.zoom.us/j/74209723684?pwd=Zw7MZtv3mCDXUgW6isePwiXDdQ5pbM.1";            // mathematical analysis lectures
+    links[7] = "https://us05web.zoom.us/j/3362272501?pwd=Vm42cEVNQVBrcUlhYWpzdnYwOUNMQT09";             // mathematical analysis practice
+    links[8] = "https://meet.google.com/cnj-qxsn-gex";                                                  // history
     links[9] = "https://us04web.zoom.us/j/73305293706?pwd=FCIp7bJ7szMAOiFBOFYTwKgdNW6HZ5.1";            // english
     links[10] = "https://www.google.com/";                                                              // PE
 
