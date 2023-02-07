@@ -41,16 +41,7 @@ int convertDays (int a)
 {
     if (a > 4)
     {
-        return 0;
-    }
-    return a;
-}
-
-int convertLectures (int a)
-{
-    if (a > 3)
-    {
-        return 0;
+        return a % 4;
     }
     return a;
 }
@@ -367,18 +358,18 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
 
     while (schedule[nextLectureDay][nextLectureNumber] == 0)
     {
-        while (nextLectureNumber < 4 && schedule[nextLectureDay][nextLectureNumber] == 0)
+        while (nextLectureNumber < 3 && schedule[convertDays(nextLectureDay)][nextLectureNumber] == 0)
         {
             nextLectureNumber++;
-            minutesLeft += 135;
+            minutesLeft += 105;
         }
         if (schedule[nextLectureDay][nextLectureNumber] != 0)
         {
             break;
         }
-        nextLectureNumber = 0;
         nextLectureDay++;
-        nextLectureDay = convertDays(nextLectureDay);
+        nextLectureNumber = 0;
+        minutesLeft += dayTime - currentTime + start1;
     }
 
     while (minutesLeft >= 60)
