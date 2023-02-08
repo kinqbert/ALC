@@ -156,7 +156,7 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         }
         case 3:
         {
-            if ((currentTime >= start1 && currentTime <= start2))
+            if ((currentTime >= start1 && currentTime <= end1))
             {
                 cout << "Algorithms and Data Structures (lecture) with Kleshch K. and Yakovchuk O.\n// link: " << link[0] << endl;
                 command = "start " + link[0];
@@ -175,7 +175,7 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         }
         case 4:
         {
-            if ((currentTime >= start1 && currentTime <= start2))
+            if ((currentTime >= start1 && currentTime <= end1))
             {
                 cout << "Mathematical Logic and Theory of Algorithms (practice) with Statkevych V.M.\n// passcode: 0oRKLp\n// link: " << link[2] << endl;
                 command = "start " + link[2];
@@ -194,7 +194,7 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         }
         default:
         {
-            if ((currentTime >= start1 && currentTime <= start2))
+            if ((currentTime >= start1 && currentTime <= end1))
             {
                 cout << "Linear Algebra (practice) with Bochonov Y.E.\n// link: " << link[3] << endl;
                 command = "start " + link[3];
