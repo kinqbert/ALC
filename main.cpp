@@ -52,25 +52,55 @@ bool lectureRightNow (int currentDay, int currentTime, bool firstWeek)
     {
         case 1:
         {
-            if ((currentTime >= start1 && currentTime <= end1) || (currentTime >= start2 && currentTime <= end2) || (currentTime >= start3 && currentTime <= end3) || (currentTime >= start4 && currentTime <= end4))
+            if (firstWeek)
             {
-                return true;
+                if ((currentTime >= start1 && currentTime <= end1) || (currentTime >= start2 && currentTime <= end2) || (currentTime >= start3 && currentTime <= end3) || (currentTime >= start4 && currentTime <= end4))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if ((currentTime >= start1 && currentTime <= end1) || (currentTime >= start2 && currentTime <= end2) || (currentTime >= start3 && currentTime <= end3))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
+
         }
         case 2:
         {
-            if (currentTime >= start3 && currentTime <= end3)
+            if (firstWeek)
             {
-                return true;
+                if (currentTime >= start3 && currentTime <= end3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (currentTime >= start3 && currentTime <= end3 || (currentTime >= start4 && currentTime <= end4))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
+
         }
         case 3:
         {
@@ -120,37 +150,48 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         {
             if ((currentTime >= start1 && currentTime <= end1))
             {
-                cout << "Linear Algebra (lecture) with Bochonov Y.E.\n// link: " << link[3] << endl;
+                cout << "Linear Algebra (lecture) with Bochonov Y.E.\n\033[1m// link: \033[0m" << link[3] << endl;
                 command = "start " + link[3];
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
-                cout << "Mathematical Logic and Theory of Algorithms (lecture) with Statkevych V.M.\n// passcode: 0oRKLp\n// link: " << link[2] << endl;
+                cout << "Mathematical Logic and Theory of Algorithms (lecture) with Statkevych V.M.\n// passcode: 0oRKLp\n\033[1m// link: \033[0m" << link[2] << endl;
                 command = "start " + link[2];
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
-                cout << "Physics of Oscillatory-Wave Processes (lecture) with Kalyta V.M.\n// link: " << link[4] << endl;
+                cout << "Physics of Oscillatory-Wave Processes (lecture) with Kalyta V.M.\n\033[1m// link: \033[0m" << link[4] << endl;
                 command = "start " + link[4];
             }
             else if (currentTime >= start4 && currentTime <= end4 && firstWeek)
             {
-                cout << "Ukraine in Context of European Development (lecture) with Khytrovska Y.V.\n// link: " << link[8] << endl;
+                cout << "Ukraine in Context of European Development (lecture) with Khytrovska Y.V.\n\033[1m// link: \033[0m" << link[8] << endl;
                 command = "start " + link[8];
             }
             break;
         }
         case 2:
         {
-            if (currentTime >= start2 && currentTime <= end2 && !firstWeek)
+            if (firstWeek)
             {
-                cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n// link: " << link[8] << endl;
-                command = "start " + link[8];
+                if (currentTime >= start3 && currentTime <= end3)
+                {
+                    cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n\033[1m// link: \033[0m" << link[8] << endl;
+                    command = "start " + link[8];
+                }
             }
-            if (currentTime >= start3 && currentTime <= end3)
+            else
             {
-                cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n// link: " << link[8] << endl;
-                command = "start " + link[8];
+                if (currentTime >= start2 && currentTime <= end2)
+                {
+                    cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n\033[1m// link: \033[0m" << link[8] << endl;
+                    command = "start " + link[8];
+                }
+                if (currentTime >= start3 && currentTime <= end3)
+                {
+                    cout << "Ukraine in Context of European Development (practice) with Khytrovska Y.V.\n\033[1m// link: \033[0m" << link[8] << endl;
+                    command = "start " + link[8];
+                }
             }
             break;
         }
@@ -158,17 +199,26 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         {
             if ((currentTime >= start1 && currentTime <= end1))
             {
-                cout << "Algorithms and Data Structures (lecture) with Kleshch K. and Yakovchuk O.\n// link: " << link[0] << endl;
+                cout << "Algorithms and Data Structures (lecture) with Kleshch K. and Yakovchuk O.\n\033[1m// link: \033[0m" << link[0] << endl;
                 command = "start " + link[0];
             }
+
             else if (currentTime >= start2 && currentTime <= end2)
             {
-                cout << "Mathematical Analysis (lecture) with Nomirovskyi D.A.\n// link: " << link[6] << endl;
-                command = "start " + link[6];
+                if (firstWeek)
+                {
+                    cout << "Mathematical Analysis (lecture) with Nomirovskyi D.A.\n\033[1m// link: \033[0m" << link[6] << endl;
+                    command = "start " + link[6];
+                }
+                else
+                {
+                    cout << "Programming and Algorithmization (lecture) with Romanov V.V.\n\033[1m// link: \033[0m" << link[6] << endl;
+                    command = "start " + link[1];
+                }
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
-                cout << "Mathematical Analysis (lecture) with Nomirovskyi D.A.\n// link: " << link[6] << endl;
+                cout << "Mathematical Analysis (lecture) with Nomirovskyi D.A.\n\033[1m// link: \033[0m" << link[6] << endl;
                 command = "start " + link[6];
             }
             break;
@@ -177,17 +227,17 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         {
             if ((currentTime >= start1 && currentTime <= end1))
             {
-                cout << "Mathematical Logic and Theory of Algorithms (practice) with Statkevych V.M.\n// passcode: 0oRKLp\n// link: " << link[2] << endl;
+                cout << "Mathematical Logic and Theory of Algorithms (practice) with Statkevych V.M.\n// passcode: 0oRKLp\n\033[1m// link: \033[0m" << link[2] << endl;
                 command = "start " + link[2];
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
-                cout << "Mathematical Analysis (practice) with Minarchenko O.M.\n// link: " << link[7] << endl;
+                cout << "Mathematical Analysis (practice) with Minarchenko O.M.\n\033[1m// link: \033[0m" << link[7] << endl;
                 command = "start " + link[7];
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
-                cout << "English Course (practice) with Duchanina N.M.\n// link: " << link[9] << endl;
+                cout << "English Course (practice) with Duchanina N.M.\n\033[1m// link: \033[0m" << link[9] << endl;
                 command = "start " + link[9];
             }
             break;
@@ -196,17 +246,17 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
         {
             if ((currentTime >= start1 && currentTime <= end1))
             {
-                cout << "Linear Algebra (practice) with Bochonov Y.E.\n// link: " << link[3] << endl;
+                cout << "Linear Algebra (practice) with Bochonov Y.E.\n\033[1m// link: \033[0m" << link[3] << endl;
                 command = "start " + link[3];
             }
             else if (currentTime >= start2 && currentTime <= end2)
             {
-                cout << "Physical Education (practice) with Zacharova I.Y.\n// link: " << link[10] << endl;
+                cout << "Physical Education (practice) with Zacharova I.Y.\n\033[1m// link: \033[0m" << link[10] << endl;
                 command = "start " + link[10];
             }
             else if (currentTime >= start3 && currentTime <= end3)
             {
-                cout << "Physics of Oscillatory-Wave Processes (lecture) with Kalyta V.M.\n// link for the second group: " << link[5] << endl;
+                cout << "Physics of Oscillatory-Wave Processes (lecture) with Kalyta V.M.\n\033[1m// link for the second group: \033[0m" << link[5] << endl;
                 command = "start " + link[5];
             }
         }
@@ -216,7 +266,7 @@ void currentLecture (int currentDay, int currentTime, bool firstWeek, string &co
 void welcomeText (tm tm, bool firstWeek)
 {
 
-    cout << "// current time: ";
+    cout << "\033[1m// current time: \033[0m";
 
     switch (tm.tm_wday)
     {
@@ -245,7 +295,7 @@ void welcomeText (tm tm, bool firstWeek)
 
     cout << ", " << tm.tm_hour << ":" << ((tm.tm_min < 10) ? "0" : "") << tm.tm_min << ":" << ((tm.tm_sec < 10) ? "0" : "") << tm.tm_sec << endl;
 
-    cout << "// current week: " << (firstWeek ? "1" : "2") << endl;
+    cout << "\033[1m// current week: \033[0m" << (firstWeek ? "1" : "2") << endl;
 }
 
 void fillArray (const int daysInWeek, const int maxLectures, int schedule[N][M], bool firstWeek)
@@ -384,9 +434,9 @@ void timeToTheNextLecture (int currentTime, int currentDay, bool firstWeek, stri
         hoursLeft -= 24;
     }
 
-    cout << "// time left until next lecture" << endl;
-    cout << "// " << daysLeft << " days, " << hoursLeft << " hours and " << minutesLeft << " minutes" << endl;
-    cout << "// next lecture: ";
+    cout << "\033[1m// time left until next lecture: \033[0m";
+    cout << daysLeft << " days, " << hoursLeft << " hours and " << minutesLeft << " minutes" << endl;
+    cout << "\033[1m// next lecture: \033[0m";
 
     nextLectureDay = convertDays(nextLectureDay);
 
@@ -399,6 +449,7 @@ int main()
     tm tm = *localtime(&t);
 
     const int daysInWeek = 5, maxLectures = 4;
+    int minutes;
 
     string command;
     string &commandRef = command;
@@ -418,24 +469,27 @@ int main()
     links[6] = "https://us04web.zoom.us/j/74209723684?pwd=Zw7MZtv3mCDXUgW6isePwiXDdQ5pbM.1";            // mathematical analysis lectures
     links[7] = "https://us05web.zoom.us/j/3362272501?pwd=Vm42cEVNQVBrcUlhYWpzdnYwOUNMQT09";             // mathematical analysis practice
     links[8] = "https://meet.google.com/cnj-qxsn-gex";                                                  // history
-    links[9] = "https://us04web.zoom.us/j/73305293706?pwd=FCIp7bJ7szMAOiFBOFYTwKgdNW6HZ5.1";            // english
-    links[10] = "https://www.google.com/";                                                              // PE
+    links[9] = "https://us04web.zoom.us/j/73954758660?pwd=LgJMVt06DUfve8VaQC3xQqZyk7RvgZ.1";            // english
+    links[10] = "https://meet.google.com/tgt-ghrg-ikk";                                                 // PE
 
     fillArray(daysInWeek, maxLectures, schedule, firstWeek);
 
     welcomeText (tm, firstWeek);
 
-    if (lectureRightNow(tm.tm_wday, convertInMinutes(tm.tm_hour, tm.tm_min), firstWeek))
+    minutes = convertInMinutes(tm.tm_hour, tm.tm_min);
+
+    if (lectureRightNow(tm.tm_wday, minutes, firstWeek))
     {
-        cout << "// current lecture: ";
-        currentLecture (tm.tm_wday, convertInMinutes(tm.tm_hour, tm.tm_min), firstWeek, commandRef, links);
+        cout << "\033[1m// lecture is \033[0m" << "\033[4mONLINE\033[0m" << "\n\033[1m// current lecture: \033[0m";
+        currentLecture (tm.tm_wday, minutes, firstWeek, commandRef, links);
     }
     else
     {
+        cout << "\033[1m// lecture is \033[0m" << "\033[4mOFFLINE\033[0m" << endl;
         timeToTheNextLecture(convertInMinutes(tm.tm_hour, tm.tm_min), tm.tm_wday, firstWeek, commandRef, schedule, links);
     }
 
-    cout << "// press ENTER to open this link now" << endl;
+    cout << "\033[1m// press\033[0m \033[4mENTER\033[0m \033[1mto open this link now\033[0m" << endl;
 
     cin.ignore();
 
