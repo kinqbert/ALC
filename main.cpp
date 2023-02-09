@@ -435,7 +435,7 @@ int main()
         timeToTheNextLecture(convertInMinutes(tm.tm_hour, tm.tm_min), tm.tm_wday, firstWeek, commandRef, schedule, links);
     }
 
-    cout << "// press ENTER to open this link now" << endl;
+    cout << "// press ENTER sdfsfsdfsdfsdfsf to open this link now" << endl;
 
     cin.ignore();
 
